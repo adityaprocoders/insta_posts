@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insta Post</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- add new post create option in web page -->
+     <div class="new-post-icon">
+        <a href="http://localhost:8080/posts/new"><i class="fa-solid fa-folder-plus"></i></a>
+     </div>
+    
+     <div class="title">
+        <h1> <i class="fa-solid fa-feather"></i> Insta Post</h1>
+     </div>
+     
+ 
+      <% for(post of posts){%>
+         <div>
+            <div class="card">
+               <h3>@ <%= post.username %> <i class="fa-solid fa-circle-check"></i></h3>
+            <p class="content"><%= post.content %></p>
+            
+            <!-- menus -->
+             <div class="menu">
+               <div class="left_menu">
+                  <a href="http://localhost:8080/posts/<%= post.id %>"><i class="fa-solid fa-caret-down"></i></a>
+                  <a href="http://localhost:8080/posts/<%= post.id %>/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+               </div>
+               <div class="right_menu">
+                  <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+                     <button><i class="fa-solid fa-trash-can"></i></button>
+                  </form>
+               </div>
+             </div>
+            </div>
+            
+         <% } %>
+      </div>
+   
+     
+
+
+       
+</body>
+</html>
